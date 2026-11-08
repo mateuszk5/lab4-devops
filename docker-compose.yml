@@ -1,0 +1,26 @@
+services:
+  web:
+    build: .
+    container_name: lab4-web
+    ports:
+      - "5000:5000"
+    environment:
+      DB_HOST: db
+      DB_NAME: appdb
+      DB_USER: appuser
+      DB_PASSWORD: apppass
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16
+    container_name: lab4-db
+    environment:
+      POSTGRES_DB: appdb
+      POSTGRES_USER: appuser
+      POSTGRES_PASSWORD: apppass
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
