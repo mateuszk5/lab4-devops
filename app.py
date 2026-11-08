@@ -14,7 +14,7 @@ def get_db_connection():
 
 @app.route("/")
 def home():
-    return "Witaj w aplikacji DevOps - Lab 4!"
+    return "Witaj w aplikacji DevOps - Lab 4! Wersja2"
 
 @app.route("/health")
 def health():
